@@ -33,5 +33,7 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "usingComponents": {
+    "van-button": "./miniprogram_npm/vant-weapp/button/index"
+  }
 }
