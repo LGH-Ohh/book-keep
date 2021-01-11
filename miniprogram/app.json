@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/detail/detail",
+    "pages/statistics/statistics",
+    "pages/bookkeep/bookkeep"
+  ],
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#f75c2f",
+    "list": [{
+      "pagePath": "pages/detail/detail",
+      "iconPath": "images/detail.png",
+      "selectedIconPath": "images/detail-active.png",
+      "text": "明细"
+    }, {
+      "pagePath": "pages/bookkeep/bookkeep",
+      "iconPath": "images/bookkeep.png",
+      "selectedIconPath": "images/bookkeep-active.png",
+      "text": "记账"
+    },{
+      "pagePath": "pages/statistics/statistics",
+      "iconPath": "images/statistics.png",
+      "selectedIconPath": "images/statistics-active.png",
+      "text": "统计"
+    }
+  ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "简·账",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
