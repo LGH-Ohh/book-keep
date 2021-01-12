@@ -1,2 +1,8 @@
-<!--miniprogram/pages/statistics/statistics.wxml-->
-<text>miniprogram/pages/statistics/statistics.wxml</text>
+<!--index.wxml-->
+<view class="container">
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+</view>
+<!-- <view class="container2">
+  <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec2 }}"></ec-canvas>
+
+</view> -->

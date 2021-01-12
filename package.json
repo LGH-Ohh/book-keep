@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/LGH-Ohh/book-keep#readme",
   "dependencies": {
-    "vant-weapp": "^0.5.29"
+    "@vant/weapp": "^1.6.4"
   }
 }
