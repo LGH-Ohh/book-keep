@@ -1,2 +1,79 @@
 <!--miniprogram/pages/detail/detail.wxml-->
-<text>miniprogram/pages/detail/detail.wxml</text>
+<view class="detail-container">
+  <view class="detail-top">
+    <view class="banner-container paddinglr10">
+      <view class="banner-left" bindtap="showPopup">
+        <view class="font-top">2021年</view>
+        <view>
+          <text class="font-fist">01</text>
+          <text>月</text>
+          <text hidden="{{show}}">▼</text>
+          <text hidden="{{!show}}">▲</text>
+        </view>
+      </view>
+      <view class="banner-right">
+        <view>
+          <view class="font-top">收入</view>
+          <view>
+            <text class="font-fist">700</text>
+            <text>.</text>
+            <text>00</text>
+          </view>
+        </view>
+        <view>
+          <view class="font-top">支出</view>
+          <view>
+            <text class="font-fist">700</text>
+            <text>.</text>
+            <text>00</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="banner-list">
+      <view class="list-container">
+        <image src="../../images/detail/list.png"></image>
+        <view>账单</view>
+      </view>
+      <view class="list-container">
+        <image src="../../images/detail/card.png"></image>
+        <view>预算</view>
+      </view>
+      <view class="list-container">
+        <image src="../../images/detail/pig.png"></image>
+        <view>理财</view>
+      </view>
+    </view>
+  </view>
+  <view class="detail-bottom">
+    <view class="list-item" wx:for="{{dataList}}" wx:key="item">
+      <view class="list-top paddinglr10">
+        <view>
+          <text>{{item.time}}</text>
+          <text>{{item.week}}</text>
+        </view>
+        <view>
+          <text>收入:{{item.income}}</text>
+          <text>支出:{{item.expend}}</text>
+        </view>
+      </view>
+      <view>
+        <view class="item-container paddinglr10" wx:for="{{item.list}}" wx:for-item="i" wx:key="i">
+          <view class="item-lf">
+            <view class="item-img-container">
+              <image hidden="{{i.priceType!=0}}" src="../../images/type/food.png"></image>
+              <image hidden="{{i.priceType!=1}}" src="../../images/type/shop.png"></image>
+            </view>
+            <text>{{i.desc}}</text>
+          </view>
+          <view class="item-rg"><text hidden="{{i.inOutType!=1}}">-</text>{{i.count}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 时间选择器 -->
+  <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+    <van-datetime-picker type="date" value="{{ currentDate }}" bind:input="onInput" min-date="{{ minDate }}"
+      formatter="{{ formatter }}" bind:cancel="onClose" bind:confirm="onConfirm" />
+  </van-popup>
+</view>
