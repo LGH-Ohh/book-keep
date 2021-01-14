@@ -1,0 +1,9 @@
+<!--components/circle-icon/circle-icon.wxml-->
+<view style="margin-bottom:30rpx;margin-top:20rpx">
+  <view class="container" style="background:{{active?activeColor:'#f5f5f5'}}"  >
+    <image src="{{src}}" style="height:{{size}}rpx;width:{{size}}rpx" alt=""/>
+  </view>
+<view class="text">
+  {{name}}
+</view>
+</view>

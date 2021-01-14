@@ -2,12 +2,17 @@ import * as echarts from '../../components/ec-canvas/echarts';
 
 const app = getApp();
 var pieOption = {
-  backgroundColor: '#2c343c',
-
+  //背景色
+  backgroundColor: '#ffffff',
+  //标题
+  title:{
+    show:true,
+    text:'支出情况'
+  },
 
   tooltip: {
       trigger: 'item',
-      formatter: '{a} <br/>{b} : {c} ({d}%)'
+      formatter: '{a} /n{b} : {c} ({d}%)'
   },
 
   visualMap: {
@@ -25,28 +30,25 @@ var pieOption = {
           radius: '55%',
           center: ['50%', '50%'],
           data: [
-              {value: 335, name: '直接访问'},
-              {value: 310, name: '邮件营销'},
-              {value: 274, name: '联盟广告'},
-              {value: 235, name: '视频广告'},
-              {value: 400, name: '搜索引擎',}
+              {value: 335, name: '学习'},
+              {value: 410, name: '娱乐'},
+              {value: 374, name: '日用'},
+              {value: 335, name: '购物'},
+              {value: 500, name: '饮食',}
           ].sort(function (a, b) { return a.value - b.value; }),
-          roseType: 'radius',
+          roseType: 'area',
           label: {
-              color: 'rgba(255, 255, 255, 0.3)'
+              color: 'rgb(0, 0, 0)'
           },
           labelLine: {
               lineStyle: {
-                  color: 'rgba(255, 255, 255, 0.3)'
+                  color:'rgb(0, 0, 0)'
               },
               smooth: 0.2,
               length: 10,
               length2: 20
           },
           itemStyle: {
-              color: '#c23531',
-              shadowBlur: 200,
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
           },
 
           animationType: 'scale',
@@ -57,11 +59,27 @@ var pieOption = {
       }
   ]
 };
+let getData = function(year,mouth){
+  let days;
+  if(mouth==11){
+    days = new Date(year+1,0,0).getDate()
+  }else{
+    days = new Date(year,mouth+1,0).getDate();
+  }
+  // days = 5
+  let date = new Date(year,mouth);
+  let res = []
+  for(let i = 1 ; i <= days ; i++){
+    date.setDate(i);
+    res.push([date.getTime(),25+Math.floor(Math.random()*10)])
+  }
+  return res
+}
+
 var lineOption = {
   backgroundColor:"#ffffff",
   xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    type: 'time',
 },
 tooltip: {
   show: true,
@@ -83,7 +101,7 @@ yAxis: {
     type: 'value'
 },
 series: [{
-    data: [820, 932, 901, 934, 1290, 1330, 1320],
+    data: getData(2021,0),
     type: 'line'
 }]
 }
@@ -122,9 +140,36 @@ Page({
       onInit:initChart(pieOption,function(params){
         console.log(params)
       })
-    }
+    },
+    option:[
+      {
+        text:'支出',
+        value:'out'
+      },
+      {
+        text:'收入',
+        value:'in'
+      }
+    ],
+    value:'out',
+    timeActive:0,
+    mouthActive:0,
+    yearActive:0
   },
 
   onReady() {
-  }
+  },
+  onShow(){
+    this.setData({
+      mouthActive:0,
+      yearActive:0
+    })
+  },
+  onTimeChange:function(params){
+    this.setData({
+      timeActive:params.detail.index
+    })
+    console.log(this.data.timeActive)
+    }
+  
 });

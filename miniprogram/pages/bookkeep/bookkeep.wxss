@@ -1,1 +1,7 @@
 /* miniprogram/pages/bookkeep/bookkeep.wxss */
+page{
+  background: white;
+}
+.wrap-container{
+  flex-wrap: wrap;
+}

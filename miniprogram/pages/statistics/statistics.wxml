@@ -1,8 +1,26 @@
 <!--index.wxml-->
+<van-dropdown-menu active-color="#f75c2f" z-index='9999'>
+  <van-dropdown-item value="{{ value }}" options="{{ option }}" />
+</van-dropdown-menu>
+<van-tabs active="{{ timeActive }}" type='card' bind:change="onTimeChange" color='#f75c2f'>
+  <van-tab title="月"></van-tab>
+  <van-tab title="年"></van-tab>
+</van-tabs>
+
+<van-tabs active="{{ mouthActive }}" class="{{timeActive==0?'show':'hidden'}}" color='#f75c2f' bind:change="onMouthChange">
+  <van-tab wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" title="{{item}}月"></van-tab>
+</van-tabs>
+
+<van-tabs active="{{ yearActive }}" class="{{timeActive==1?'show':'hidden'}}" color='#f75c2f' bind:change="onYearChange">
+  <van-tab title="2019年"></van-tab>
+  <van-tab title="2020年"></van-tab>
+  <van-tab title="今年"></van-tab>
+</van-tabs>
 <view class="container">
   <ec-canvas id="mychart-dom-line" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
 </view>
-<!-- <view class="container2">
+
+<view class="container2">
   <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec2 }}"></ec-canvas>
 
-</view> -->
+</view>

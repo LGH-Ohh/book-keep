@@ -1,2 +1,57 @@
 <!--miniprogram/pages/bookkeep/bookkeep.wxml-->
-<text>miniprogram/pages/bookkeep/bookkeep.wxml</text>
+<van-tabs active="{{ active }}" bind:change="onChange" type='card' color='#f75c2f'> 
+  <van-tab title="支出">
+    <view class="hcontainer wrap-container" bindtap='selectPayIcon'>
+
+      <circle-icon wx:for="{{payIcon}}" active="{{item.id==selectPay}}" id="{{item.id}}" src="{{item.src}}"
+        wx:key="{{item.id}}" name="{{item.name}}"></circle-icon>
+
+    </view>
+  </van-tab>
+  <van-tab title="收入">
+<view class="hcontainer wrap-container" bindtap='selectIncomeIcon'>
+
+<circle-icon wx:for="{{incomeIcon}}" active="{{item.id==selectIncome}}" id="{{item.id}}" src="{{item.src}}"
+  wx:key="{{item.id}}" name="{{item.name}}"></circle-icon>
+
+</view></van-tab>
+</van-tabs>
+<van-popup show="{{ showTimePop }}" zIndex="200"  position="bottom" bind:close="onClose">
+
+  <van-datetime-picker
+  type="date"
+  value="{{ currentDate }}"
+  bind:confirm="onTimeComfirm"
+  bind:cancel="onTimeCancel"
+  min-date="{{ minDate }}"
+  formatter="{{ formatter }}"
+/>
+</van-popup>  
+<van-dialog
+  use-slot
+  show="{{showDialog}}"
+  show-cancel-button
+  bind:close="onDialogClose"
+  bind:confirm="onDialogComfirm"
+  z-index="10"
+  confirm-button-color="#f75c2f"
+>
+<van-cell-group>
+  <van-field
+    model:value="{{desc}}"
+    clearable
+    label="描述"
+    input-align="right"
+    placeholder="请输入记账描述"
+    bind:click-icon="onClickIcon"
+  />
+  <van-cell title="记账时间" is-link value="{{time}}"  bind:click="selectTime"/>
+  <van-field
+    model:value="{{ count }}"
+    type="digit"
+    label="金额"
+    input-align="right"
+    placeholder="请输入金额"
+  />
+</van-cell-group>
+</van-dialog>

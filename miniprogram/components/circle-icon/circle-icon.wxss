@@ -1,0 +1,20 @@
+/* components/circle-icon/circle-icon.wxss */
+.container{
+  border-radius: 50%;
+  width: 121rpx;
+  display: inline-block;
+  height: 121rpx;
+  text-align: center;
+  margin:10rpx 33rpx;
+}
+.container image{
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.text{
+  text-align: center;
+  font-size: 30rpx;
+  color:#666666;
+}

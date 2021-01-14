@@ -1,29 +1,32 @@
 {
   "pages": [
-    "pages/statistics/statistics",  
     "pages/detail/detail",
+    "pages/statistics/statistics",
     "pages/bookkeep/bookkeep"
   ],
   "tabBar": {
     "color": "#2c2c2c",
     "selectedColor": "#f75c2f",
-    "list": [{
-      "pagePath": "pages/detail/detail",
-      "iconPath": "images/detail.png",
-      "selectedIconPath": "images/detail-active.png",
-      "text": "明细"
-    }, {
-      "pagePath": "pages/bookkeep/bookkeep",
-      "iconPath": "images/bookkeep.png",
-      "selectedIconPath": "images/bookkeep-active.png",
-      "text": "记账"
-    },{
-      "pagePath": "pages/statistics/statistics",
-      "iconPath": "images/statistics.png",
-      "selectedIconPath": "images/statistics-active.png",
-      "text": "统计"
-    }
-  ]
+    "list": [
+      {
+        "pagePath": "pages/detail/detail",
+        "iconPath": "images/detail.png",
+        "selectedIconPath": "images/detail-active.png",
+        "text": "明细"
+      },
+      {
+        "pagePath": "pages/bookkeep/bookkeep",
+        "iconPath": "images/bookkeep.png",
+        "selectedIconPath": "images/bookkeep-active.png",
+        "text": "记账"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "iconPath": "images/statistics.png",
+        "selectedIconPath": "images/statistics-active.png",
+        "text": "统计"
+      }
+    ]
   },
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -34,7 +37,15 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-dropdown-menu": "./miniprogram_npm/@vant/weapp/dropdown-menu/index",
-    "van-dropdown-item": "./miniprogram_npm/@vant/weapp/dropdown-item/index"
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
   }
 }
